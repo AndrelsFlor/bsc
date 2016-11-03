@@ -20,10 +20,13 @@
 		<li class="dropdown">
 		
 				<a class="active" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastrar <span class="caret"></span></a>
+
+		<div class = "dropdown">
 			<ul class="dropdown-menu">
   				<li><a href="user_cad.php">Cadastrar Usuário</a></li>
-				</ul>
-				</li>
+				
+			</ul>
+		</div>
 				
 				  <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Objetivos <span class="caret"></span></a>

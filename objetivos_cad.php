@@ -19,7 +19,7 @@
 
 			<h1 class="col-lg-6 col-lg-offset-4">Cadastro de Objetivos</h1>
 
-	<form class="col-lg-8 col-lg-offset-2">
+	<form class="col-lg-8 col-lg-offset-2" id="formObjetivo">
 
 	<div class="form-group">
 		<label class="control-label" for="txt_nome">Nome</label>
@@ -62,7 +62,7 @@
 		<button class="btn btn-danger  btn-lg" name="btn_cancelar" type="button">Cancelar</button>
 		<button class="btn btn-success pull-right  btn-lg" name="btn_salvar" type="submit">Salvar</button>
 	</div>
-
+	<input type="hidden" value="cadObj" name="acao">
 </form>
 
 
@@ -90,6 +90,17 @@
 	        autoclose: true,
 	      };
 	      date_input.datepicker(options);
+
+	      $("#formObjetivo").submit(function(e){
+	      	e.preventDefault();
+	      	var data = $(this).serialize();
+	      	$.ajax({
+	      		url:"main.php",
+	      		type:"POST",
+	      		data:data
+
+	      	});
+	      });
 
 
 	  });
