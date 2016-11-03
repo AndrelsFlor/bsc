@@ -67,5 +67,29 @@
 			return $stmt->execute();
 
 		}
+
+		public function setNome($nome){
+			$this->nome = $nome;
+
+		}
+
+		public function setDescricao($descricao){
+			$this->descricao = $descricao;
+
+		}
+
+		public function setDtInicial($dtInicial){
+			$this->dtInicial = $dtInicial;
+
+		}
+
+		public function setDtFinal($dtFinal){
+			$this->dtFinal = $dtFinal;
+		}
+
+		public function setMedia($media){
+			$this->media = $media;
+
+		}
 	}
 ?>

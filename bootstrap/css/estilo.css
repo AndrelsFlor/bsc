@@ -1,0 +1,13 @@
+* {
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
+
+	h1, form,button{
+		margin-top: 20px;
+		margin-bottom: 50px;
+	}
+	h1{
+		font-weight: bold;
+	}
