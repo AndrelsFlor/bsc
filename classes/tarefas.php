@@ -57,6 +57,40 @@ require_once("CRUD.php");
 		$this->idObjetivo = $idObjetivo;
 
 	}
+	public function setNome($nome){
+		$this->nome = $nome;
+
+	}
+
+	public function setDescricao($descricao){
+		$this->descricao = $descricao;
+
+	}
+
+	public function setMeta($meta){
+		$this->meta = $meta;
+
+	}
+
+	public function setDtInicio($dtInicio){
+		$this->dtInicio = $dtInicio;
+
+	}
+
+	public function setDtFim($dtFim){
+		$this->dtFim = $dtFim;
+
+	}
+
+	public function setIdUsuario($idUsuario){
+		$this->idUsuario = $idUsuario;
+
+	}
+
+	public function setAtivo($ativo){
+		$this->ativo = $ativo;
+
+	}
 }
 
 
