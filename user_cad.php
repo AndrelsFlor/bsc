@@ -20,7 +20,7 @@
 
 			<h1 class="col-lg-6 col-lg-offset-4">Cadastro de Usuários</h1>
 
-	<form class="col-lg-8 col-lg-offset-2">
+	<form class="col-lg-8 col-lg-offset-2" id="formCadUser">
 
 	<div class="form-group">
 		<label class="control-label" for="txt_user_nome">Nome</label>
@@ -45,20 +45,17 @@
 	<div class="form-group">
 		<label class="control-label" for="txt_user_conrfirmar_email">Confirmar Senha</label>
 		<input class="form-control" id="txt_user_confirmar_email" name="txt_user_confirmar_email" type="email"/>
+		<input type="hidden" name="acao" value="userCad">
 	</div>	
 
-		<div class="btn-group">
-			<div class="btn-group">
-				<button type="button" class="btn btn-defalut dropdown-toggle" data-toggle="dropdown">
-					Nível de Acesso <span class="caret"></span></button>
-				<ul class="dropdown-menu" role="menu">
-					<li><a href="#">Nível 1</a></li>
-					<li><a href="#">Nível 2</a></li>
-					<li><a href="#">Nível 3</a></li>
-				</ul>
-			</div>
-		</div>
-
+	
+				<select id="nivelAcesso" name="nivelAcesso">
+					<option>Nivel 1</option>
+					<option>Nivel 2</option>
+					<option>Nivel 3</option>
+				</select>
+		
+	
 	<div class="form-group">
 			<button class="btn btn-success pull-right  btn-lg" name="btn_salvar" type="submit">Cadastrar</button>
 	</div>
@@ -89,6 +86,26 @@
 	        autoclose: true,
 	      };
 	      date_input.datepicker(options);
+	      $("#formCadUser").submit(function(e){
+	      	var dados = $(this).serialize();
+	       	e.preventDefault();
+	       	var senha = $("#txt_user_senha").val();
+	       	var confirmaSenha = $("#txt_user_confirmar_senha").val();
+
+	       	if(senha != confirmaSenha){
+	       		alert("As senhas não são iguais!")
+	       	}
+	       	else{
+	      	$.ajax({
+	      		url:"main.php",
+	      		type:"POST",
+	      		data:dados,
+	      		success:function(){
+	      			alert("Usuário cadastrado com sucesso!");
+	      		}
+	      	});
+	      }
+	      });
 
 
 	  });

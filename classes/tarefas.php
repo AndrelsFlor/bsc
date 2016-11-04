@@ -17,7 +17,7 @@ require_once("CRUD.php");
 	private $ativo;
 
 	public function insert(){
-		$sql = "INSERT INTO $this->tabela(IdObjetivo,Nome,Descricao,Meta,DtInicio,DtFim,idUsuario,Ativo) VALUES(:idObjetivo,:nome,:descricao,:meta,:dtInicio,:dtFim,:idUsuario,:ativo)";
+		$sql = "INSERT INTO $this->tabela(IdObjetivo,Nome,Descricao,Meta,DtInicio,DtFim,idUsuario) VALUES(:idObjetivo,:nome,:descricao,:meta,:dtInicio,:dtFim,:idUsuario)";
 		$stmt = BD::prepare($sql);
 
 		$stmt->bindParam(':idObjetivo',$this->idObjetivo);

@@ -46,61 +46,7 @@
 		<div class="row">
 		<div class="col-lg-5">
 
-		<label for="txt_var1">Variável 1</label>
-		<div class="input-group date">
-	  	<input type="text" class="form-control" id="txt_var1" name="txt_var1" >
-	 	</div></div>
-
-		<div class="col-lg-5 col-lg-offset-1">
-	  <label for="txt_pesoVar1">Peso Variável 1</label>
-	  <div class="input-group date">
-		<input type="text" class="form-control" id="txt_pesoVar1" name="txt_pesoVar1" >
-		</div></div></div></div>
-
-		<div class="form-group">
-		<div class="row">
-		<div class="col-lg-5">
-
-		<label for="txt_var2">Variável 2</label>
-		<div class="input-group date">
-	  	<input type="text" class="form-control" id="txt_var2" name="txt_var2" >
-	 	</div></div>
-
-		<div class="col-lg-5 col-lg-offset-1">
-	  <label for="txt_pesoVar2">Peso Variável 2</label>
-	  <div class="input-group date">
-		<input type="text" class="form-control" id="txt_pesoVar2" name="txt_pesoVar2" >
-		</div></div></div></div>
-
-		<div class="form-group">
-		<div class="row">
-		<div class="col-lg-5">
-
-		<label for="txt_var3">Variável 3</label>
-		<div class="input-group date">
-	  	<input type="text" class="form-control" id="txt_var3" name="txt_var3" >
-	 	</div></div>
-
-		<div class="col-lg-5 col-lg-offset-1">
-	  <label for="txt_pesoVar3">Peso Variável 3</label>
-	  <div class="input-group date">
-		<input type="text" class="form-control" id="txt_pesoVar3" name="txt_pesoVar3" >
-		</div></div></div></div>
-
-		<div class="form-group">
-		<div class="row">
-		<div class="col-lg-5">
-
-		<label for="txt_var4">Variável 4</label>
-		<div class="input-group date">
-	  	<input type="text" class="form-control" id="txt_var4" name="txt_var4" >
-	 	</div></div>
-
-		<div class="col-lg-5 col-lg-offset-1">
-	  <label for="txt_pesoVar1">Peso Variável 4</label>
-	  <div class="input-group date">
-		<input type="text" class="form-control" id="txt_pesoVar4" name="txt_pesoVar4" >
-		</div></div></div></div>
+		
 
 	<div class="form-group">
 	<div class="row">

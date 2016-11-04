@@ -26,4 +26,22 @@
 
 
 	}
+
+	else if($acao == 'userCad'){
+
+		$nome = $_POST['nome'];
+		$senha = $_POST['senha'];
+		$email = $_POST['email'];
+		$nivelAcesso = $_POST['nivelAcesso'];
+
+		$usuario = new Usuarios();
+
+		$usuario->setNome($nome);
+		$usuario->setSenha($senha);
+		$usuario->setLogin($email);
+		$usuario->setNivelAcesso($nivelAcesso);
+		$usuario->setAtivo(1);
+
+		$usuario->insert();
+	}
 ?>
