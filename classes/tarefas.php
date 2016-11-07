@@ -27,7 +27,7 @@ require_once("CRUD.php");
 		$stmt->bindParam(':dtInicio',$this->dtInicio);
 		$stmt->bindParam(':dtFim',$this->dtFim);
 		$stmt->bindParam(':idUsuario',$this->idUsuario);
-		$stmt->bindParam(':ativo',$this->ativo);
+		
 
 		return $stmt->execute();
 

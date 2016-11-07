@@ -44,4 +44,26 @@
 
 		$usuario->insert();
 	}
+
+	else if($acao == 'tarefasCad'){
+		$nome = $_POST['nome'];
+		$idObjetivo = $_POST['selectObjetivo'];
+		$dataFinal = $_POST['txt_dataFinal'];
+		$dataInicio = $_POST['txt_dataInicio'];
+		$descricao = $_POST['txt_descricao'];
+		$meta = $_POST['txt_meta'];
+
+		$tarefa = new Tarefas();
+
+		$tarefa->setIdObjetivo($idObjetivo);
+		$tarefa->setNome($nome);
+		$tarefa->setDescricao($descricao);
+		$tarefa->setMeta($meta);
+		$tarefa->setDtInicio($dataInicio);
+		$tarefa->setDtFim($dataFinal);
+		$tarefa->setIdUsuario(1);
+		
+
+		$tarefa->insert();
+	}
 ?>

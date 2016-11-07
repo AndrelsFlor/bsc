@@ -13,6 +13,9 @@
 	<body>
 		<?php
 			include_once 'nav_bar.php';
+			require_once("classes/objetivo.php");
+
+			$objetivo = new Objetivo();
 		?>
 
 
@@ -21,7 +24,7 @@
 
 			<h1 class="col-lg-6 col-lg-offset-4">Cadastro de Tarefas</h1>
 
-	<form class="col-lg-8 col-lg-offset-2">
+	<form class="col-lg-8 col-lg-offset-2" id="formTarefasCad">
 
 	<div class="form-group">
 		<label class="control-label" for="txt_nome">Nome</label>
@@ -65,11 +68,29 @@
 	<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>
 	</div></div></div>
 
+	<div class="form-group">
+		Objetivo:
+		<select id="selectObjetivo" name="selectObjetivo">
+			<?php
+				foreach($objetivo->selectAll() as $valor){
+
+			?>
+			<option value="<?php echo $valor->Id;?>"><?php echo $valor->Nome;?></option>
+			<?php
+
+				}
+			?>
+
+		</select>
+
+	</div>
 
 	<div class="form-group">
+		<input type="hidden" name="acao" value="tarefasCad">
 		<button class="btn btn-danger  btn-lg" name="btn_cancelar" type="button">Cancelar</button>
 		<button class="btn btn-success pull-right  btn-lg" name="btn_salvar" type="submit">Salvar</button>
 	</div>
+
 
 </form>
 
@@ -98,6 +119,20 @@
 	        autoclose: true,
 	      };
 	      date_input.datepicker(options);
+
+	      $("#formTarefasCad").submit(function(e){
+	      	e.preventDefault();
+	      	var dados = $(this).serialize();
+	      	$.ajax({
+	      		url:"main.php",
+	      		type:"POST",
+	      		data:dados,
+	      		success:function(){
+	      			alert("Tarefa cadastrada com sucesso!");
+	      			$("#formTarefasCad").trigger("reset");
+	      		}
+	      	});
+	      });
 
 
 	  });

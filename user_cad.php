@@ -48,12 +48,13 @@
 		<input type="hidden" name="acao" value="userCad">
 	</div>	
 
-	
+				<div class="form-group">
 				<select id="nivelAcesso" name="nivelAcesso">
 					<option>Nivel 1</option>
 					<option>Nivel 2</option>
 					<option>Nivel 3</option>
 				</select>
+				</div>
 		
 	
 	<div class="form-group">
