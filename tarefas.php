@@ -14,6 +14,11 @@
 	<body>
 		<?php
 			include_once 'nav_bar.php';
+            require_once("classes/tarefas.php");
+            require_once("classes/objetivo.php");
+            $tarefa = new Tarefas();
+            $objetivo = new Objetivo();
+
 		?>
 
 
@@ -28,59 +33,34 @@
 <table id="tabela_tarefas" class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
+            <th>Objetivo</th>
+            <th>Nome</th>
+            <th>Descricao</th>
+            <th>Data de início</th>
+            <th>Data de fim</th>
+             <th>Meta</th>
+
         </tr>
     </thead>
     <tbody>
+    <?php
+        foreach($tarefa->selectAll() as $valor){
+        $nomeObjetivo = $objetivo->select($valor->IdObjetivo);
+    ?>
+
         <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
+            <td><?php echo $nomeObjetivo->Nome;?></td>
+            <td><?php echo $valor->Nome;?></td>
+            <td><?php echo $valor->Descricao;?></td>
+            <td><?php echo $valor->DtInicio;?></td>
+            <td><?php echo $valor->DtFim;?></td>
+            <td><?php echo $valor->Meta;?> 6</td>
         </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-		<tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-		<tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-		<tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-		<tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-		<tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
+
+         <?php
+
+        }
+    ?>
     </tbody>
 </table>
 
