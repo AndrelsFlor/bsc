@@ -68,6 +68,15 @@
 
 		}
 
+		public function getTarefas(){
+			
+			$sql = "SELECT * FROM $this->tabela INNER JOIN tarefa ON tarefa.IdObjetivo = $this->tabela.Id";
+			$stmt = BD::prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchAll();
+
+		}
+
 		public function setNome($nome){
 			$this->nome = $nome;
 
