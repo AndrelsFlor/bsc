@@ -97,7 +97,11 @@
 	      	$.ajax({
 	      		url:"main.php",
 	      		type:"POST",
-	      		data:data
+	      		data:data,
+	      		success:function(){
+	      			alert("Objetivo inserido com sucesso !");
+	      			$("#formObjetivo").trigger("reset");
+	      		}
 
 	      	});
 	      });

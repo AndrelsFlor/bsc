@@ -53,6 +53,15 @@ require_once("CRUD.php");
 
 	}
 
+	public function selectTarefas($id){
+		$sql = "SELECT * FROM $this->tabela WHERE IdObjetivo = :id";
+		$stmt = BD::prepare($sql);
+		$stmt->bindParam(':id',$id);
+		$stmt->execute();
+
+		return $stmt->fetchAll();
+	}
+
 	public function setIdObjetivo($idObjetivo){
 		$this->idObjetivo = $idObjetivo;
 

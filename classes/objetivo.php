@@ -70,7 +70,7 @@
 
 		public function getTarefas(){
 			
-			$sql = "SELECT * FROM $this->tabela INNER JOIN tarefa ON tarefa.IdObjetivo = $this->tabela.Id";
+			$sql = "SELECT $this->tabela.Id AS id_objetivo, $this->tabela.Nome AS nomeObjetivo FROM $this->tabela INNER JOIN tarefa ON tarefa.IdObjetivo = $this->tabela.Id";
 			$stmt = BD::prepare($sql);
 			$stmt->execute();
 			return $stmt->fetchAll();

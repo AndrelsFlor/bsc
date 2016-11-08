@@ -66,4 +66,12 @@
 
 		$tarefa->insert();
 	}
+
+	else if($acao == 'getTarefa'){
+		$objetivo = new Objetivo();
+		foreach($objetivo->getTarefas() as $valor){
+			echo $valor->id_objetivo;
+
+		}
+	}
 ?>

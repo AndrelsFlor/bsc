@@ -45,6 +45,16 @@
 			
 		}
 
+		public function selectVariaveis($id){
+			$sql = "SELECT * FROM $this->tabela WHERE idTarefa = :id";
+			$stmt = BD::prepare($sql);
+			$stmt->bindParam(':id',$id);
+			$stmt->execute();
+
+			return $stmt->fetchAll();
+
+		}
+
 		public function setIdTarefa($idTarefa){
 
 			$this->idTarefa = $idTarefa;

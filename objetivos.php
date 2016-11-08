@@ -14,6 +14,7 @@
 	<body>
 		<?php
 			include_once 'nav_bar.php';
+            require_once('classes/objetivo.php');
 		?>
 
 <div class="container">
@@ -26,59 +27,32 @@
 <table id="tabela_objetivos" class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
+            <th>Objetivo</th>
+            <th>Data de início</th>
+            <th>Data de fim</th>
+            <th>Média</th>
         </tr>
     </thead>
     <tbody>
+    <?php
+        $objetivo = new Objetivo();
+        foreach($objetivo->selectAll() as $valor){
+     ?>       
         <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
+      
+
+
+            <td><a href="objetivo_detail.php?idObj=<?php echo $valor->Id;?>"><?php echo $valor->Nome;?></a></td>
+            <td><?php echo $valor->DtInicial;?></td>
+            <td><?php echo $valor->DtFinal;?></td>
+            <td><?php echo $valor->Media;?></td>
+
+            
         </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-		<tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-		<tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-		<tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-		<tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
-		<tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
+        <?php
+            }
+        ?>
+        
     </tbody>
 </table>
 
@@ -101,6 +75,7 @@
         url: 'http://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json'
     }
 } );
+
 } );
 
 	</script>
