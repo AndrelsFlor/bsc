@@ -1,4 +1,5 @@
 <?php
+
 	require_once("classes/objetivo.php");
 	require_once("classes/tarefas.php");
 	require_once("classes/usuario.php");
@@ -87,6 +88,24 @@
 		$variavel->setMeta($meta);
 
 		$variavel->insert();
+
+	}
+
+	else if($acao == 'updateVar'){
+		$id = $_POST['id'];
+		$nome = $_POST['nome'];
+		$atingido = $_POST['atingido'];
+		$idTarefa = $_POST['selectTarefa'];
+		$meta = $_POST['txt_media'];
+
+		$variavel = new Variaveis();
+		
+		$variavel->setVariavel($nome);
+		$variavel->setPeso($atingido);
+		$variavel->setIdTarefa($idTarefa);
+		$variavel->setMeta($meta);
+
+		$variavel->update($id);
 
 	}
 ?>

@@ -64,15 +64,17 @@
    ?>
 
   	<li class="list-group-item">Tarefa:&nbsp;<?php echo $valor->Nome;?><p><br>
-  		Descricao:&nbsp;<?php echo $valor->Descricao;?><br><br>
+  		Descrição:&nbsp;<?php echo $valor->Descricao;?><br><br>
   		Meta:&nbsp;<?php echo $valor->Meta;?><br><br>
   		Data de início:&nbsp;<?php echo $valor->DtInicio;?><br><br>
   		Data FInal:&nbsp;<?php echo $valor->DtFim;?><br><br>
 
   		<?php
   			foreach($variaveis->selectVariaveis($valor->Id) as $valor2){
-  				echo $valor2->variavel;
+  				
   		?>
+
+          <a href="variavel_update.php?id=<?php echo $valor2->id;?>"><?php echo  $valor2->variavel;?></a>
   				<br><br>Meta:&nbsp;<?php echo $valor2->meta;?>
   				<br><br>Alcançado:&nbsp;<?php echo $valor2->peso;?>
   				<br><br>Status:&nbsp;<?php
