@@ -17,6 +17,14 @@
 	require_once("classes/tarefas.php");
 	require_once("classes/variaveis.php");
 	$id = $_GET['idObj'];
+
+	date_default_timezone_set("America/Sao_Paulo");
+
+	$hoje = date("d/m/y");
+
+	$soma = 0;
+
+	
 ?>
 <div class="container">
 <div class="panel panel-success">
@@ -42,7 +50,17 @@
  
   
   <?php
+  	
   	foreach($tarefas->selectTarefas($id) as $valor){
+  		if(strtotime($hoje) > strtotime($valor->DtFim)){
+
+  			$validadeTarefa = 1; 
+
+  		}
+  		else{
+  			$validadeTarefa = 0;
+  		}
+
    ?>
 
   	<li class="list-group-item">Tarefa:&nbsp;<?php echo $valor->Nome;?><p><br>
@@ -56,7 +74,22 @@
   				echo $valor2->variavel;
   		?>
   				<br><br>Meta:&nbsp;<?php echo $valor2->meta;?>
-  				<br><br>Alcançado:&nbsp;<?php echo $valor2->peso;?><br><br>
+  				<br><br>Alcançado:&nbsp;<?php echo $valor2->peso;?>
+  				<br><br>Status:&nbsp;<?php
+  					if($validadeTarefa == 0){
+  						if($valor2->peso >= $valor2->meta){
+  							echo "Sucesso!";
+  						}
+  						else{
+  							echo "Fracasso";
+  						}
+
+  					}
+  					else{
+  						echo "Avaliação em andamento";
+  					}
+  					$soma = $soma + $valor2->peso;
+  				?><br><br>
 
   		<?
 
@@ -64,7 +97,26 @@
   		?>
 
   	</p></li>
-    
+
+    	 <li class="list-group-item">Status do objetivo:<p><?php 
+
+    	 	if($validadeTarefa == 0){
+
+
+    	 		echo $soma?>&nbsp;(<?php 
+    	 	
+    	 		$obj = $objetivo->select($id);
+
+    	 		if($soma >= $obj->Media){
+    	 			echo "Sucesso";
+
+    	 		}
+    	 	}
+    	 	else{
+
+    	 		echo "Avaliação em andamento!";
+    	 	}
+    	 ?>)</p></li>
 
      <?
 
