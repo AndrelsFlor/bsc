@@ -71,14 +71,24 @@
 
   		<?php
   			foreach($variaveis->selectVariaveis($valor->Id) as $valor2){
-  				
-  		?>
 
+        if($validadeTarefa == 0){
+  		?>
           <a href="variavel_update.php?id=<?php echo $valor2->id;?>"><?php echo  $valor2->variavel;?></a>
+          <?php
+            }
+
+            else{
+            ?>
+            <?php echo  $valor2->variavel;?>
+
+            <?php
+            }
+          ?>
   				<br><br>Meta:&nbsp;<?php echo $valor2->meta;?>
   				<br><br>Alcançado:&nbsp;<?php echo $valor2->peso;?>
   				<br><br>Status:&nbsp;<?php
-  					if($validadeTarefa == 0){
+  					if($validadeTarefa == 1){
   						if($valor2->peso >= $valor2->meta){
   							echo "Sucesso!";
   						}
