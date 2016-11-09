@@ -103,20 +103,24 @@
     	 	if($validadeTarefa == 0){
 
 
-    	 		echo $soma?>&nbsp;(<?php 
+    	 		echo $soma?>&nbsp;
+    	 		<?php 
     	 	
     	 		$obj = $objetivo->select($id);
 
     	 		if($soma >= $obj->Media){
-    	 			echo "Sucesso";
+    	 			echo "(Sucesso)";
 
+    	 		}
+    	 		else{
+    	 			echo "(Fracasso!)";
     	 		}
     	 	}
     	 	else{
 
     	 		echo "Avaliação em andamento!";
     	 	}
-    	 ?>)</p></li>
+    	 ?></p></li>
 
      <?
 
