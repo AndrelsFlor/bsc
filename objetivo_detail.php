@@ -100,14 +100,24 @@
 
     	 <li class="list-group-item">Status do objetivo:<p><?php 
 
-    	 	if($validadeTarefa == 0){
+    		 $obj = $objetivo->select($id);
+
+    		 if(strtotime($hoje) > strtotime($obj->DtFinal)){
+
+    		 	$validadeObj = 1;
+
+    		 }
+    		 else{
+    		 	$validadeObj = 0;
+    		 }
+
+    	 	if($validadeObj == 1){
 
 
     	 		echo $soma?>&nbsp;
     	 		<?php 
     	 	
-    	 		$obj = $objetivo->select($id);
-
+    	 		
     	 		if($soma >= $obj->Media){
     	 			echo "(Sucesso)";
 
