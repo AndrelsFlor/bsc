@@ -12,13 +12,12 @@
 
 		public function insert(){
 			
-			$sql = "INSERT INTO $this->tabela(idTarefa,variavel,peso,meta) VALUES(:idTarefa,:variavel,:peso,:meta)";
+			$sql = "INSERT INTO $this->tabela(idTarefa,variavel,meta) VALUES(:idTarefa,:variavel,:meta)";
 
 			$stmt = BD::prepare($sql);
 
 			$stmt->bindParam(':idTarefa',$this->idTarefa);
 			$stmt->bindParam(':variavel',$this->variavel);
-			$stmt->bindParam(':peso',$this->peso);
 			$stmt->bindParam(':meta',$this->meta);
 
 			return $stmt->execute();

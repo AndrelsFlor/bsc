@@ -74,4 +74,19 @@
 
 		}
 	}
+	else if($acao == 'cadVar'){
+		$variavel = new Variaveis();
+
+		$nome = $_POST['nome'];
+		$idTarefa = $_POST['selectTarefa'];
+		
+		$meta = $_POST['txt_media'];
+
+		$variavel->setVariavel($nome);
+		$variavel->setIdTarefa($idTarefa);
+		$variavel->setMeta($meta);
+
+		$variavel->insert();
+
+	}
 ?>
