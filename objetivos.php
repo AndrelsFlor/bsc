@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 	<head>
+    <?php
+        $id = $_GET['user'];
+        session_start();
+
+        if(empty($_SESSION['id']) || $_SESSION['id'] != $id){
+            session_destroy();
+            echo"<<script language='JavaScript'> 
+            alert('Boa tentativa ;)');
+            window.location='index.php'; 
+            </script>";
+
+        }
+    ?>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">

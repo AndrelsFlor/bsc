@@ -32,7 +32,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Objetivos <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="objetivos.php">Objetivos</a></li>
-            <li><a href="objetivos_cad.php">Cadastrar Objetivos</a></li>
+            <li><a href="objetivos_cad.php?id=<?php echo $_SESSION['id'];?>">Cadastrar Objetivos</a></li>
           </ul>
 
         </li>

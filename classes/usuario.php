@@ -43,6 +43,35 @@
 
 		}
 
+		public function login($senha2){
+
+			$sql = "SELECT * FROM $this->tabela WHERE Login = :login";
+			$stmt = BD::prepare($sql);
+			$stmt->bindParam(':login',$this->login);
+			
+			$stmt->execute();
+
+			$valor = $stmt->fetch();
+
+			if(!empty($valor)){
+				if(password_verify($senha2,$valor->Senha)){
+
+					return $valor->Id;
+				}
+				else{
+					return false;
+				}
+
+			
+			}
+			else{
+				return false;
+			}
+
+
+
+		}
+
 		public function setNome($nome){
 			$this->nome = $nome;
 		}

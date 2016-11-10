@@ -108,4 +108,32 @@
 		$variavel->update($id);
 
 	}
+	else if($acao == 'loginUser'){
+		$usuario = new Usuarios();
+
+		$email = $_POST['email'];
+		$senha = $_POST['senha'];
+
+		$usuario->setLogin($email);
+
+		$login = $usuario->login($senha);
+
+		
+
+		if($login != false){
+			session_start();
+			$_SESSION['id'] = $login;
+			echo "sucesso";
+			header('Location:objetivos.php?user='.$_SESSION['id']);
+		}
+		else{
+			echo "		
+			<script language='JavaScript'> 
+			alert('Login ou senha inválidos');
+			window.location='index.php'; 
+			</script>";
+
+		}
+
+		}
 ?>

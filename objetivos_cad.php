@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<?php
+
+		require_once('classes/usuario.php');
+		$usuario = new Usuarios();
+		$id = $_GET['id'];
+		session_start();
+
+		if(empty($_SESSION['id']) || $_SESSION['id'] != $id){
+		    session_destroy();
+		    echo"<<script language='JavaScript'> 
+		    alert('Boa tentativa ;)');
+		    window.location='index.php'; 
+		    </script>";
+		}
+
+		$valor = $usuario->select($id);
+
+		$nivelAcesso = $valor->NivelAcesso;
+
+		if($nivelAcesso < 3){
+			echo"<script language='JavaScript'> 
+			alert('Você não está autorizado a acessar esta página');
+			</script>";
+
+			header("Location:objetivos.php?user=".$_SESSION['id']);
+
+		}
+	?>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
